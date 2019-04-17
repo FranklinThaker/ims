@@ -32,7 +32,7 @@
     "password-reset-nodemailer": "0.0.1",
     "pg": "^7.8.0",
     "pg-hstore": "^2.3.2",
-    "sequelize": "^4.42.0",
+    "sequelize": "^4.43.2",
     "sequelize-cli": "^5.4.0",
     "serve-index": "^1.9.1"
   }
