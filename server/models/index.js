@@ -61,6 +61,7 @@ db.AssignedComponents.belongsTo(db.Components, {foreignKey: 'componentId'});
 db.AssignedComponents.belongsTo(db.Users, {as: 'AssignedBy',foreignKey: 'assignedBy'});
 db.AssignedComponents.belongsTo(db.Users, {as: 'AssignedTo', foreignKey: 'userId'});
 db.Incidents.belongsTo(db.Users, {as: 'ResolvedBy', foreignKey: 'resolvedBy'});
+db.Incidents.belongsTo(db.Users, {as: 'IncidentBy', foreignKey: 'incidentBy'})
 db.Incidents.belongsTo(db.Users, { foreignKey: 'incidentBy' })
 db.IncidentUpdates.belongsTo(db.Users, { as: 'UserDetails', foreignKey: 'updateBy' })
 db.IncidentUpdates.belongsTo(db.Incidents, { as: 'IncidentDetails', foreignKey: 'incidentId' })
