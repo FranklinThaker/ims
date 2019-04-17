@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import AuthService from './AuthService';
-import { Alert } from 'reactstrap';
+import { Alert, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logo from '../images/bacancy-technology2.png'
 import '../css/Login.css'
@@ -78,7 +78,7 @@ class Login extends Component {
   render() {
     return (
       <>
-        <div className="wrapper" style={{ height: "100vh" }}>
+        <div>
           <form className="login" onSubmit={(e) => this.handleLogin(e)}>
             <img src={logo} alt='no logo found' ></img>
             <input type="text" value={this.state.uname} onChange={(e) => this.ChangeValue(e, 'uname')} placeholder="Username" onClick={() => this.setState({ uname: '' })} required />
@@ -86,11 +86,8 @@ class Login extends Component {
             <input type="password" value={this.state.pword} onChange={(e) => this.ChangeValue(e, 'pword')} placeholder="Password" onClick={() => this.setState({ pword: '' })} required />
             <i className="fa fa-key"></i>
             <Link to="/ForgotPassword">Forgot your password?</Link>
-
-            <button>
-              {/* <i class="spinner"></i> */}
-              <span className="state">Log in</span>
-            </button>
+            <br/>
+            <Button color="primary">Log In!</Button>
 
           </form>
           <Alert color="danger" isOpen={this.state.collapse}>

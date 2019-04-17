@@ -23,7 +23,7 @@ class ViewProfile extends Component {
         'Authorization': header,
       }
     }).then((response) => {
-        this.setState({
+      this.setState({
         username: response.data.data.username,
         firstName: response.data.data.firstName,
         lastName: response.data.data.lastName,
@@ -36,7 +36,7 @@ class ViewProfile extends Component {
   }
   render() {
     return (
-      <div className="wrapper" >
+      <div>
         <form className="login" style={{ height: "-webkit-fill-available" }}>
           Username<input type="text" value={this.state.username} disabled />
           FirstName<input type="text" value={this.state.firstName} disabled />

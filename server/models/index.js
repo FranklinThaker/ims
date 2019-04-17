@@ -55,5 +55,8 @@ db.AssignedComponents.belongsTo(db.Components, {foreignKey: 'componentId'});
 db.AssignedComponents.belongsTo(db.Users, {as: 'AssignedBy',foreignKey: 'assignedBy'});
 db.AssignedComponents.belongsTo(db.Users, {as: 'AssignedTo', foreignKey: 'userId'});
 
+db.Incidents.belongsTo(db.Users, {as: 'ResolvedBy', foreignKey: 'resolvedBy'});
+
+
 // db.Users.hasMany(db.Components, {foreignKey: ''})
 module.exports = db;

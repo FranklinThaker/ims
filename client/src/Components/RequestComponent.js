@@ -75,9 +75,9 @@ class RequestComponent extends Component {
   render() {
     return (
       <>
-       <div className="wrapper" >
-        <form className="login" style={{ height: "-webkit-fill-available" }} onSubmit={(e) => { this.handleFormSubmit(e) }}>
-          Select Category<br />
+       <div>
+        <form className="login"  onSubmit={(e) => { this.handleFormSubmit(e) }}>
+          Select Category
 
           <Select
             options={this.state.categoryData && this.state.categoryData.map(e => ({
@@ -87,10 +87,9 @@ class RequestComponent extends Component {
             value={this.state.categoryType}
             onChange={(v)=>this.handleChange(v)}
           />
+         
 
-          <br /><br />
-
-          Select Component <br />
+          Select Component
           <Select
             options={this.state.componentData && this.state.componentData.map(e => ({
               label: e.componentName,
@@ -99,14 +98,14 @@ class RequestComponent extends Component {
             value={this.state.componentName}
             onChange={(e)=>this.handleChange2(e)}
           />
-          <br /><br />
-          Issue <br />
+          
+          Issue <br/>
           <textarea
             placeholder="Description goes here..."
             name="issue"
             onChange={(e) => { this.changeValue3(e) }}
           />
-          <br />
+          
           <Button type="submit" color="primary">Request Send</Button>&nbsp;         
           <Button onClick={() => { this.props.history.replace('/user/home') }} color="primary">Home</Button>
         </form>   

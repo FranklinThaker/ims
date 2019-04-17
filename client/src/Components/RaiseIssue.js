@@ -98,9 +98,9 @@ class RaiseIssue extends Component {
   render() {
     return (
       <>
-      <div className="wrapper" >     
-        <form className="login" style={{ height: "-webkit-fill-available" }} onSubmit={(e) => { this.handleFormSubmit(e) }}>
-        Incident Title<input type="text" value={this.state.formdata.incidentName} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'incidentName')} required />
+      <div>     
+        <form className="login" onSubmit={(e) => { this.handleFormSubmit(e) }}>
+        Incident Title     <input type="text" value={this.state.formdata.incidentName} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'incidentName')} required />
         Incident Details   <input type="text" value={this.state.formdata.incident} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'incident')} required />
                 
 
