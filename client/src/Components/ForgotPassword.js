@@ -62,13 +62,16 @@ class ForgotPassword extends Component {
   render() {
     return (
       <>
-        <form className="frank" onSubmit={(e) => { this.handleFormSubmit(e) }}>
-          <div className="question">
+        <form className="login" onSubmit={(e) => { this.handleFormSubmit(e) }}>
+          <div>
+          <label>Email address: </label>
             <input type="email" value={this.state.formdata.password} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'email')} required />
-            <label>Email address: </label>
+           
           </div>
 
           <Button type="submit" color="primary">Send</Button>&nbsp;
+          <Button color="primary" onClick={()=>{this.props.history.push('/')}}>Home</Button>&nbsp;
+
         </form>
         <Alert color="primary" isOpen={this.state.collapse}>
           You will receive an password reset link if you entered correct email address! Check your mail box
