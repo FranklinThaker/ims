@@ -100,12 +100,11 @@ class CategoryCRUD extends Component {
   render() {
     return (
       <>
-        <form className="frank" onSubmit={(e) => { this.handleFormSubmit(e) }}>
-        <div className="question">
-        <input type="text" value={this.state.formdata.categoryType} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'categoryType')} required />
+        <form className="login" onSubmit={(e) => { this.handleFormSubmit(e) }}>
         <label>Category Type</label> 
-        </div>
-          <Button type="submit" color="primary">Update</Button>&nbsp;
+        <input type="text" value={this.state.formdata.categoryType} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'categoryType')} required />
+       
+        <Button type="submit" color="primary">Update</Button>&nbsp;
         </form>
 
         <Alert color="primary" isOpen={this.state.collapse}>

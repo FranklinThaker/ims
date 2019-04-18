@@ -3,9 +3,9 @@ import axios from 'axios';
 import AuthService from './AuthService';
 import { Alert } from 'reactstrap';
 import { Button } from 'reactstrap'
+import Select from 'react-select';
 
-let formdata = {
-    categoryId: '',
+let formdata = {    
     componentName: '',
     status: '', //available or not > boolean
     serialNo: '',
@@ -25,6 +25,10 @@ class ComponentCRUD extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.Auth = new AuthService();
   }
+
+  handleChange = (selectedOption) => {
+    this.setState({ categoryId: selectedOption.value, categoryType: selectedOption });
+ }
 
   ChangeUpdateValue(e, currentUser, field2) {
     const temp = { ...this.state[currentUser] };
@@ -47,15 +51,29 @@ class ComponentCRUD extends Component {
   }
 
   componentWillMount() {
-    if (this.props.id !== undefined)
+    if (this.props.id !== undefined){
       this.getData(this.props.id)
+      this.setState({flag: true})
+    }
+
+    const header = this.Auth.getToken()
+      axios.get(`${process.env.REACT_APP_SERVER}/api/categories/getAllCategories`, {
+        headers: {
+          'Authorization': header,
+        }
+      }).then((response) => {
+        this.setState({ categoryData: response.data.data })
+      })
+        .catch(function (error) {
+          console.log(error);
+        })
   }
 
   handleFormSubmit(e) {
     if (this.state.flag) { ///for edit in the data
       e.preventDefault();
       const fpt = {
-        categoryId: this.state.formdata.categoryId,
+        categoryId: this.state.categoryId,
         componentName: this.state.formdata.componentName,
         status: this.state.formdata.status,
         serialNo: this.state.formdata.serialNo,
@@ -83,7 +101,7 @@ class ComponentCRUD extends Component {
     else {
       e.preventDefault();
       const data = {
-        categoryId: this.state.formdata.categoryId,
+        categoryId: this.state.categoryId,
         componentName: this.state.formdata.componentName,
         status: this.state.formdata.status,
         serialNo: this.state.formdata.serialNo,
@@ -112,17 +130,25 @@ class ComponentCRUD extends Component {
   render() {
     return (
       <>
-        <form className="frank" onSubmit={(e) => { this.handleFormSubmit(e) }}>
+        <form className="login" onSubmit={(e) => { this.handleFormSubmit(e) }}>        
         
-        <div className="question">
-        <input type="text" value={this.state.formdata.categoryId} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'categoryId')} required />
-        <label>Category Id</label> 
-        </div>
-        
-        <div className="question">
-        <input type="text" value={this.state.formdata.componentName} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'componentName')} required />
+        {/* <label>Category Id</label> 
+        <input type="text" value={this.state.formdata.categoryId} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'categoryId')} required /> */}
+       
+       Select Category
+
+          <Select
+            options={this.state.categoryData && this.state.categoryData.map(e => ({
+              label: e.categoryType,
+              value: e.id
+            }))}
+            value={this.state.categoryType}
+            onChange={(v)=>this.handleChange(v)}
+          />
+
         <label>Component Name</label> 
-        </div>
+        <input type="text" value={this.state.formdata.componentName} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'componentName')} required />
+        
         
         <table>
             <th>Status</th>
@@ -130,7 +156,7 @@ class ComponentCRUD extends Component {
               <td>
                 Available <input type="radio" value='true' name="status" checked={this.state.formdata.status === 'true'}
                   onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'status')} />
-              </td>
+              </td>&nbsp;&nbsp;&nbsp;
               <td>
                 Not Available <input type="radio" value='false' name="status" checked={this.state.formdata.status === 'false'}
                   onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'status')} />
@@ -138,14 +164,13 @@ class ComponentCRUD extends Component {
             </tr>
           </table>
         
-        <div className="question">
-        <input type="text" value={this.state.formdata.serialNo} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'serialNo')} required />
-        <label>Serial No</label> 
-        </div>
         
-        <div className="question">
-        warrantyDate<input type="date" value={this.state.formdata.warrantyDate} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'warrantyDate')} required />
-        </div>
+        <label>Serial No</label> 
+        <input type="text" value={this.state.formdata.serialNo} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'serialNo')} required />
+        
+        
+        warrantyDate
+        <input type="date" value={this.state.formdata.warrantyDate} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'warrantyDate')} required />
         
         <Button type="submit" color="primary">Update</Button>&nbsp;
         

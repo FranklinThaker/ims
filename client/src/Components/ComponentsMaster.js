@@ -95,6 +95,7 @@ class ComponentsMaster extends Component {
   }
 
   render() {
+    console.log(this.state.data)
     return (
       <>
         <Button type="submit" color="primary" onClick={this.toggleAdd}>Add New Component</Button>&nbsp;
@@ -118,8 +119,16 @@ class ComponentsMaster extends Component {
                   accessor: "categoryId"
                 },
                 {
+                  Header: "Category Type",
+                  Cell: row => <span className='number'>{row.original.CategoryDetails.categoryType && row.original.CategoryDetails.categoryType }</span>
+                },
+                {
                   Header: "Component Name",
                   accessor: "componentName"
+                },
+                {
+                  Header: "Component Name",
+                  accessor: "serialNo"
                 },
                 {
                   Header: "status",
