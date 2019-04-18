@@ -122,11 +122,11 @@ class ManageComponents extends Component {
                 },
                 {
                   Header: "Assigned By",                  
-                  Cell: row => <span className='number'>{row.original.UserAssignedBy.firstName}</span>
+                  Cell: row => <span className='number'>{row && row.original && row.original.UserAssignedBy && row.original.UserAssignedBy.firstName}</span>
                 },
                 {
                   Header: "Assigned To",                  
-                  Cell: row => <span className='number'>{row.original.UserAssignedTo.firstName}</span>
+                  Cell: row => <span className='number'>{row && row.original && row.original.UserAssignedTo && row.original.UserAssignedTo.firstName}</span>
                 },
                 {
                   Header: "Warranty Date",

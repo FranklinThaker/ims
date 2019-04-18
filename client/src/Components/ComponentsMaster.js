@@ -131,7 +131,7 @@ class ComponentsMaster extends Component {
                   accessor: "serialNo"
                 },
                 {
-                  Header: "status",
+                  Header: "Available or Not",
                   id: "status",
                   accessor: d => String(d.status)
                 },
