@@ -3,7 +3,7 @@ import axios from 'axios';
 import AuthService from './AuthService';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import ReactTable from "react-table";
-// import ComponentCRUD from './ComponentCRUD';
+import AssignComponent from './AssignComponent';
 
 
 class ManageComponents extends Component {
@@ -25,7 +25,7 @@ class ManageComponents extends Component {
     }));
   }
 
-  toggleEdit(rowId) {
+  toggleAssign(rowId) {
     this.setState(prevState => ({
       modalEdit: !prevState.modalEdit,
       id: rowId
@@ -34,13 +34,11 @@ class ManageComponents extends Component {
 
   makeData() {
     const header = this.Auth.getToken()
-    axios.get(`${process.env.REACT_APP_SERVER}/api/getAssignedComponentsData/`, {
+    axios.get(`${process.env.REACT_APP_SERVER}/api/components/getUnAssignedComponents/`, {
       headers: {
         'Authorization': header,
       }
-    }).then((response) => {
-      // console.log(response.data.data[0].Category.categoryType, 'In Manage Components page')
-      console.log(response.data.data)
+    }).then((response) => {     
       this.setState({
         data: response.data.data
       })
@@ -68,19 +66,19 @@ class ManageComponents extends Component {
       })
   }
 
-  //   renderEditComponentModal() {
-  //     return (
-  //       <Modal isOpen={this.state.modalEdit} toggle={this.toggleEdit} className={this.props.className}>
-  //         <ModalHeader toggle={(e) => { this.toggleEdit(e) }}>Edit Component</ModalHeader>
-  //         <ModalBody>
-  //           <ComponentCRUD id={this.state.id} makeData={this.makeData} />
-  //         </ModalBody>
-  //         <ModalFooter>
-  //           <Button color="secondary" onClick={(e) => { this.toggleEdit(e) }}>Cancel</Button>
-  //         </ModalFooter>
-  //       </Modal>
-  //     )
-  //   }
+    renderAssignComponentModel() {
+      return (
+        <Modal isOpen={this.state.modalEdit} toggle={this.toggleAssign} className={this.props.className}>
+          <ModalHeader toggle={(e) => { this.toggleAssign(e) }}>Assign Component</ModalHeader>
+          <ModalBody>
+            <AssignComponent id={this.state.id} makeData={this.makeData} userId={this.props.user.id}/>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="secondary" onClick={(e) => { this.toggleAssign(e) }}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+      )
+    }
 
   //   renderAddComponentModal() {
   //     return (
@@ -106,28 +104,39 @@ class ManageComponents extends Component {
               Header: "Info",
               columns: [
                 {
-                  Header: "Category Type",
-                  accessor: "categoryType",
-                  // Cell: row => <span className='number'>{row.original.Category.categoryType}</span>
+                  Header: "Category Type",                  
+                  Cell: row => <span className='number'>{row.original.CategoryDetails.categoryType}</span>
                 },
                 {
                   Header: "Component Name",
                   accessor: "componentName"
                 },
                 {
-                  Header: "status",
+                  Header: "Serial No",
+                  accessor: "serialNo"
+                },
+                {
+                  Header: "Available or Not",
                   id: "status",
                   accessor: d => String(d.status)
+                },
+                {
+                  Header: "Assigned By",                  
+                  Cell: row => <span className='number'>{row.original.UserAssignedBy.firstName}</span>
+                },
+                {
+                  Header: "Assigned To",                  
+                  Cell: row => <span className='number'>{row.original.UserAssignedTo.firstName}</span>
                 },
                 {
                   Header: "Warranty Date",
                   accessor: "warrantyDate"
                 },
                 {
-                  Header: '',
+                  Header: 'Assign Component Here',
                   Cell: row => (
                     <>
-                      {<><Button color='primary' onClick={(e) => { this.toggleEdit(row.original.id) }} ><i className='fas'>&#xf044;</i></Button>&nbsp;</>}
+                      {<><Button color='primary' onClick={(e) => { this.toggleAssign(row.original.id) }} ><i className='fas'>&#xf005;</i></Button>&nbsp;</>}
                       {<Button color='danger' onClick={(e) => { this.handleDelete(row.original.id) }}><i className='fas'>&#xf1f8;</i></Button>}
                     </>
                   )
@@ -139,8 +148,8 @@ class ManageComponents extends Component {
           className="-striped -highlight"
         />
         <br />
-        {/* {this.renderEditComponentModal()}
-        {this.renderAddComponentModal()} */}
+        {this.renderAssignComponentModel()}
+        {/* {this.renderAddComponentModal()} */}
       </>
 
     )
