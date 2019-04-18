@@ -88,16 +88,13 @@ class ResetPassword extends Component {
   render() {
     return (
       <>
-        <form className="frank" onSubmit={(e) => { this.handleFormSubmit(e) }}>
-          <div className="question">
-            <input type="password" value={this.state.formdata.password} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'password')} required />
+        <form className="login" onSubmit={(e) => { this.handleFormSubmit(e) }}>
+          
             <label>New Password</label>
-          </div>
-
-          <div className="question">
-            <input type="password" value={this.state.formdata.confirmPassword} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'confirmPassword')} required />
+            <input type="password" value={this.state.formdata.password} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'password')} required />
+          
             <label>Confirm Password</label>
-          </div>
+            <input type="password" value={this.state.formdata.confirmPassword} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'confirmPassword')} required />
           <Button type="submit" color="primary">Update</Button>&nbsp;
         </form>
         <Alert color="primary" isOpen={this.state.collapse}>
