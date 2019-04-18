@@ -6,6 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.BOOLEAN,
     serialNo: DataTypes.STRING,
     warrantyDate: DataTypes.DATE,
+    assignedTo: DataTypes.INTEGER,
+    assignedBy: DataTypes.INTEGER
   }, {});
   Components.associate = function (models) {
     // associations can be defined here
