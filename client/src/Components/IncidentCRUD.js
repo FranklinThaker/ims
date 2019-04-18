@@ -94,27 +94,22 @@ class IncidentCRUD extends Component {
     console.log(this.state.userArray, "in render incidentcrud")
     return (
       <>
-        <form className="frank" onSubmit={(e) => { this.handleFormSubmit(e) }}>
+        <form className="login" onSubmit={(e) => { this.handleFormSubmit(e) }}>
+          
+            <label>Incident Name</label>          
+            <input type="text" value="" value={this.state.formdata.incidentName} disabled />
 
-          <div className="question">
-            <input type="text" value="" disabled />
-            <label>{this.state.formdata.incidentName}</label>
-          </div>
-
-          <div className="question">
+          
+            <label>Incident Details</label>           
             <input type="text" value={this.state.formdata.incident} disabled />
-            {/* <label>Incident Details</label>  */}
-          </div>
 
-          <div className="question">
+          
+            <label>Updates</label>          
             <input type="text" value={this.state.formdata.updates} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'updates')} required />
-            <label>Updates</label>
-          </div>
 
-          <div className="question">
+          
+            <label>Status</label>          
             <input type="text" value={this.state.formdata.status} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'status')} required />
-            <label>Status</label>
-          </div>
 
           Select Resolved By User <br />
           <Select
@@ -124,6 +119,7 @@ class IncidentCRUD extends Component {
             }))}
             value={this.selectedOption}
             onChange={this.handleChange} />
+            <br/>
 
           <Button type="submit" color="primary">Update</Button>&nbsp;
 
