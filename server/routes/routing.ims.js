@@ -7,7 +7,6 @@ const incidentUpdates = require('../controllers/incidentUpdates.controller');
 const incidents = require('../controllers/incidents.controller');
 const components = require('../controllers/components.controller');
 const categories = require('../controllers/categories.controller');
-const assignedComponents = require('../controllers/assignedComponents.controller');
 
 //all middlewares define here
 const checkSignIn = require('../controllers/middleware.js')
@@ -94,7 +93,7 @@ const routes = (app) => {
 
 
     //routing for assignedComponents Table
-    app.get('/api/getAssignedComponentsData', assignedComponents.getAssignedComponentsData)
+    // app.get('/api/getAssignedComponentsData', assignedComponents.getAssignedComponentsData)
 
 };
 
