@@ -66,6 +66,9 @@ db.Incidents.belongsTo(db.Users, { foreignKey: 'incidentBy' })
 db.IncidentUpdates.belongsTo(db.Users, { as: 'UserDetails', foreignKey: 'updateBy' })
 db.IncidentUpdates.belongsTo(db.Incidents, { as: 'IncidentDetails', foreignKey: 'incidentId' })
 
+db.Components.belongsTo(db.Categories, {as : 'CategoryDetails', foreignKey: 'categoryId'});
+db.Components.belongsTo(db.Users, {as : 'UserAssignedTo', foreignKey: 'assignedTo'});
+db.Components.belongsTo(db.Users, {as : 'UserAssignedBy', foreignKey: 'assignedBy'});
 
 
 
