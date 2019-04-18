@@ -28,9 +28,9 @@ const routes = (app) => {
 
     app.post('/api/users/forgotPassword', user.forgotPassword)
     app.post('/:token', user.resetPassword)
-    app.get('/:token', user.checkIfLinkExist)
-    
-
+    app.get('/:token', user.checkIfLinkExist)   
+    app.get('/api/users/fetchNames', passport.authenticate('jwt', { session: false }), checkSignIn, user.fetchNames);
+   
     app.post('/api/users/login/', user.login);
 
     //routing for RequestComponets table
@@ -77,13 +77,17 @@ const routes = (app) => {
     app.post('/api/components/getComponentName', components.getComponentName);
     app.get('/api/components/getComponentsById/:id', components.getComponentsById);
     app.get('/api/components/getFilteredComponents/:categoryId', components.getFilteredComponents);
+    app.get('/api/components/getUnAssignedComponents', components.getUnAssignedComponents);
+    app.put('/api/components/AssignComponent/:id', components.AssignComponent);
+
 
     //routing for Categories Table
     app.get('/api/categories/getAllCategories', categories.getAllCategories);
+    app.get('/api/categories/', categories.getAllCategories);    
     app.post('/api/categories', categories.createNewCategories);
     app.put('/api/categories/:id', categories.updateCategories);
     app.delete('/api/categories/:id', categories.deleteCategories);
-    // app.get('/api/categories/getCategoryById/:id', categories.getCategoryById)
+    app.get('/api/categories/getCategoryById/:id', categories.getCategoryById)
     // app.get('/api/categories/getCategoryId', categories.getCategoryId)
     // app.get('/api/categories/getCategoryName', categories.getCategoryName)
     // app.get('/api/categories/getCategory', categories.getCategory)
