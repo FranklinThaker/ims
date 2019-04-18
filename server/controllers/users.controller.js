@@ -57,6 +57,28 @@ exports.getAllUsers = async function (req, res) {
   }
 };
 
+exports.fetchNames = async function (req, res) {
+  let data; 
+  try {
+    data = await users.findAll({
+      attributes:["firstName", "id"]
+    });
+  } catch (err) {
+    res.status(500).json({
+      status: false,
+      message: 'Unable To List Data.',
+      data: err,
+    });
+  }
+  if (data !== undefined) {
+    res.status(200).json({
+      status: true,
+      message: 'All Data fetched successfully',
+      data,
+    });
+  }
+};
+
 exports.updateUsers = async function (req, res) {
   try {
     users.findOne({
