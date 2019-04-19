@@ -3,7 +3,7 @@ import AuthService from './AuthService';
 import withAuth from './withAuth';
 import UserSidebar from './UserSidebar';
 import AdminSidebar from './AdminSidebar';
-
+import "../App.css"
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 const Auth = new AuthService();
@@ -23,9 +23,11 @@ class Navbar extends Component {
   render() {
     return (
       <>
+
         <nav className="navbar navbar-expand navbar-dark bg-dark static-top">
           <Link className="navbar-brand mr-1" to="/user/home"><img alt="Not Found:(" src={require("../images/bacancy-technology2.png")} height="40px" width="200px" /></Link>
          {this.props.user.role ? <AdminSidebar /> : <UserSidebar />} 
+         
           <form className="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
             <div className="input-group">
               <input type="text" className="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2"></input>
@@ -37,7 +39,7 @@ class Navbar extends Component {
             </div>
           </form>
           <ul className="navbar-nav ml-auto ml-md-0">
-            {/* <li className="nav-item dropdown no-arrow mx-1">
+            <li className="nav-item dropdown no-arrow mx-1">
               <a className="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i className="fas fa-bell fa-fw"></i>
                 <span className="badge badge-danger">9+</span>
@@ -60,7 +62,7 @@ class Navbar extends Component {
                 <div className="dropdown-divider"></div>
                 <a className="dropdown-item" href="#">Something else here</a>
               </div>
-            </li> */}
+            </li>
             <li className="nav-item dropdown no-arrow">
               <Link className="nav-link dropdown-toggle" to="" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {this.props.user.username}<i className="fas fa-user-circle fa-fw"></i>
@@ -73,7 +75,7 @@ class Navbar extends Component {
               </div>
             </li>
           </ul>
-        </nav>
+        </nav>   
       </>
     );
   }

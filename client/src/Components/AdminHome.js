@@ -39,8 +39,7 @@ class AdminHome extends Component {
             <Route path='/admin/home/UserMaster' render={() => (<UserMaster {...this.props} />)} />
             <Route path='/admin/home/ComponentMaster' render={() => (<ComponentsMaster {...this.props} />)} />
             <Route path='/admin/home/ManageComponents' render={() => (<ManageComponents {...this.props} />)} />
-            
-          </div>
+            </div>
         </div>
 
       </>

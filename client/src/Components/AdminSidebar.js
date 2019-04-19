@@ -21,10 +21,10 @@ class Sidebar extends Component {
     return (
       <>
         <div id="mySidenav" style={{ width: this.state.isOpen ? '250px' : '0px' }} className="sidenav">
-          {/* <a href="javascript:void(0)" className="closebtn" onClick={() => this.openNav()}>&times;</a> */}
+          <a href="javascript:void(0)" className="closebtn" onClick={() => this.openNav()}>&times;</a>
           <Link to='' className="closebtn" onClick={() => this.openNav()}>&times; </Link>
           <Link to='/admin/home/ViewProfile' onClick={() => this.closeNav()}>
-            {/* <i className="fas fa-fw fa-tachometer-alt"></i> */}
+            <i className="fas fa-fw fa-tachometer-alt"></i>
             View Profile
           </Link>
           <Link to='/admin/home/IncidentMaster' className="menu-item" onClick={() => this.closeNav()}>Incidents</Link>
@@ -34,6 +34,8 @@ class Sidebar extends Component {
           <Link to='/admin/home/ManageComponents' className="menu-item" onClick={() => this.closeNav()}>Manage Components</Link>
         </div>
         <span style={{ cursor: "pointer" }} className="openBtn" onClick={() => this.openNav()}>&#9776;</span>
+
+        
       </>
     );
   }
