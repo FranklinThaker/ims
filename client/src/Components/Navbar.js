@@ -23,7 +23,6 @@ class Navbar extends Component {
   render() {
     return (
       <>
-
         <nav className="navbar navbar-expand navbar-dark bg-dark static-top">
           <Link className="navbar-brand mr-1" to="/user/home"><img alt="Not Found:(" src={require("../images/bacancy-technology2.png")} height="40px" width="200px" /></Link>
          {this.props.user.role ? <AdminSidebar /> : <UserSidebar />} 
@@ -75,10 +74,10 @@ class Navbar extends Component {
               </div>
             </li>
           </ul>
-        </nav>   
+        </nav>           
       </>
     );
   }
 }
 
-export default withAuth(Navbar);
+export default Navbar;
