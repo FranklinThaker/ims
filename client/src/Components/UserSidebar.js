@@ -1,41 +1,34 @@
 
-import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
+const UserSidebar = () => {
+  return (
+    <>
+      <input type="checkbox" class="navBtn" id="navBtn" />
+      <nav>
+        <ul>
+          <li>
+            <Link to='/user/home/viewProfile'><i class="fa fa-user-circle"></i> View Profile</Link>
+          </li>
+          <li>
+            <Link to='/user/home/requestComponent'><i class="fa fa-diamond"></i>Request Component</Link>
+          </li>
+          <li>
+            <Link to='/user/home/raiseIssue'><i class="fa fa-cube"></i>Raise Issues</Link>
+          </li>
+          <li>
+            <Link to='/user/home/viewComponentStatus'><i class="fa fa-magic"></i>View Requested Component Status</Link>
+          </li>
+          <li>
+            <Link to='/user/home/viewIssueStatus'><i class="fa fa-heart"></i>View Raised Issue Status</Link>
+          </li>
+        </ul>
+      </nav>
 
-class Sidebar extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: false
-    }
-  }
-  openNav() {
-    this.setState({ isOpen: !this.state.isOpen })
-  }
-
-  closeNav() {
-    this.setState({ isOpen: false })
-  }
-  render() {
-    return (
-      <>
-        <div id="mySidenav" style={{ width: this.state.isOpen ? '250px' : '0px' }} className="sidenav">
-          {/* <a href="javascript:void(0)" className="closebtn" onClick={() => this.openNav()}>&times;</a> */}
-          <Link to='' className="closebtn" onClick={() => this.openNav()}>&times; </Link>
-          <Link to='/user/home/viewProfile' onClick={() => this.closeNav()}>
-            {/* <i className="fas fa-fw fa-tachometer-alt"></i> */}
-            View Profile
-          </Link>
-          <Link to='/user/home/requestComponent' className="menu-item" onClick={() => this.closeNav()}>Request Component</Link>
-          <Link to='/user/home/raiseIssue' className="menu-item" onClick={() => this.closeNav()}>Raise Issue</Link>
-          <Link to='/user/home/viewComponentStatus' className="menu-item" onClick={() => this.closeNav()}>Requested Component Status</Link>
-          <Link to='/user/home/viewIssueStatus' className="menu-item" onClick={() => this.closeNav()}>Raised Issue Status</Link>
-        </div>
-        <span style={{ cursor: "pointer" }} className="openBtn" onClick={() => this.openNav()}>&#9776;</span>
-      </>
-    );
-  }
+    </>
+  )
 }
-export default Sidebar;
+export default UserSidebar;
+
+
 
