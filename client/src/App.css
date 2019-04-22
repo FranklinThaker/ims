@@ -1,0 +1,318 @@
+body{ 
+  font-family:Helvetica, Arial, sans-serif;  
+}
+  
+  .navbarForHome {
+    overflow: hidden;
+    background-color: #555;
+    width: 100%;
+  }
+  
+
+  div.rowNew{
+    margin: 0;
+    padding: 0;
+  }
+  .navbarForHome a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin: 0;
+  }
+  
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  .dropdown .dropbtn {
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .navbarForHome a:hover, .dropdown:hover .dropbtn {
+    background-color: #000;
+  }
+  
+  .active {
+    background-color: #4CAF50;
+  }
+  
+  
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .hide {
+  display: none
+  }
+  
+  /* ==========================================================================
+  Google Fonts
+  ========================================================================== */
+  @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic);
+  /* ==========================================================================
+  clearfix
+  ========================================================================== */
+  .cf:before,
+  .cf:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+  }
+  
+  .cf:after {
+    clear: both;
+  }
+  
+  .cf {
+    *zoom: 1;
+  }
+  
+  /* ==========================================================================
+  html, body and stuff
+  ========================================================================== */
+  *, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-size: 100%;
+    font-family: 'PT Sans', sans-serif;
+    background-color: #f3f3f3;
+  }
+  
+  /* ==========================================================================
+  text
+  ========================================================================== */
+  .left {
+    text-align: left;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  .right {
+    text-align: right;
+  }
+  
+  .justify {
+    text-align: justify;
+  }
+  
+  .uppercase {
+    text-transform: uppercase;
+  }
+  
+  /* ==========================================================================
+  padding / margin
+  ========================================================================== */
+  .padding1rem {
+    padding: 1rem;
+  }
+  
+  .paddingRight2rem {
+    padding: 0 2rem 0 0;
+  }
+  
+  /* ==========================================================================
+  links
+  ========================================================================== */
+  a {
+    color: white;
+  }
+  
+  /* ==========================================================================
+  headlines
+  ========================================================================== */
+  /* ==========================================================================
+  awesome Fonts
+  ========================================================================== */
+  i {
+    color: #d1d4d9;
+    margin: 0 1rem 0 0;
+  }
+  
+  /* ==========================================================================
+  layout
+  ========================================================================== */
+  .containerForSidebar {
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  .floatLeft {
+    float: left;
+  }
+  
+  .floatRight {
+    float: right;
+  }
+  
+  .posAbs {
+    position: absolute;
+  }
+  
+  .third {
+    width: 33.3333%;
+  }
+  
+  .half {
+    width: 50%;
+  }
+  
+  .twoThird {
+    width: 66.6666%;
+  }
+  
+  .quarter {
+    width: 25%;
+  }
+  
+  label {
+      cursor: pointer;
+      /* border-right: 1px solid #d1d4d9; */
+      display: block;
+      height: 3rem;
+      padding: 1rem;
+      width: 3rem;
+      position: relative;
+  }
+  label span {
+    border-radius: 15%;
+      height: 2px;
+      width: 25px;
+      background-color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateY(-50%) translateX(-50%);
+      transform: translateY(-50%) translateX(-50%);
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+  }
+  label span:before {
+    border-radius: 15%;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    top: 400%;
+    transition: all 0.3s ease-out;
+  }
+  label span:after {
+    border-radius: 15%;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    top: -400%;
+    transition: all 0.3s ease-out;
+  }
+  
+  label:hover span {
+    height: 0;
+    transition: all 0.3s ease-out;
+  }
+  label:hover span:before {
+    height: 3px;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease-out;
+  }
+  label:hover span:after {
+    height: 3px;
+    transform: rotate(45deg);
+    transition: all 0.3s ease-out;
+  }
+  
+  .bar {
+    color: white;
+    background-color: #4a4e54;
+    line-height: 4rem;
+    border: 1px solid grey;
+  }
+  
+  nav {
+    border-left: 1px solid #d1d4d9;
+    border-right: 1px solid #d1d4d9;
+    border-bottom: 1px solid #d1d4d9;
+    width: 25%;
+    background-color: white;
+    transform: translateX(-100%);
+    transform-origin: top left;
+    transition: all 0.3s ease-out;
+    position: absolute;
+    /* top: 64px; */
+    left: 0;
+    min-height: 100%;
+  }
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;  
+  }
+  /* nav ul li {
+    border-top: 1px solid #efefef;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 0.6s ease-out;
+  } */
+  nav ul li a {
+    transition: all 0.3s ease-out;
+    line-height: 1rem;
+    text-decoration: none;
+    color: #8a8d92;
+    display: block;
+    padding: 1rem;
+  }
+  nav ul li:first-child {
+    border-top: none;
+  }
+  nav ul li:hover a {
+    color: white;
+    background-color: #6d747e;
+    transition: all 0.3s ease-out;
+  }
+  nav ul li:hover a i {
+    color: white;
+  }
+  
+  .navBtn:checked ~ nav {
+    transform: translateX(0);
+    transition: all 0.3s ease-out;
+  }
+  
+  .col {
+    padding: 0 15px;
+  }
+  
+  .navBtn:checked ~ .col {
+    margin-left: 25%;
+  }
+  
+  .navBtn {
+    display: none;
+  } 
+
+ 
