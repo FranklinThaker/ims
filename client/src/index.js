@@ -1,11 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './vendor/fontawesome-free/css/all.min.css'
-import './vendor/datatables/dataTables.bootstrap4.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
