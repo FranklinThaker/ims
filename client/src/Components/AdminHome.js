@@ -3,8 +3,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 import {Row, Col} from 'reactstrap';
 import AuthService from './AuthService';
 import withAuth from './withAuth';
-
-import Navbar from './Navbar';
 import ViewProfile from './ViewProfile';
 import IncidentsMaster from './IncidentsMaster';
 import CategoryMaster from './CategoryMaster';
