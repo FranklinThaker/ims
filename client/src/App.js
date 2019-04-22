@@ -5,7 +5,6 @@ import UserHome from './Components/UserHome';
 import AdminHome from './Components/AdminHome';
 import Footer from './Components/Footer';
 import './App.css';
-import "./css/sidebar.css";
 import ResetPassword from './Components/ResetPassword';
 import ForgotPassword from './Components/ForgotPassword';
 
