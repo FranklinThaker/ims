@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
-import {Row, Col} from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import AuthService from './AuthService';
 import withAuth from './withAuth';
 import ViewProfile from './ViewProfile';
@@ -29,23 +29,23 @@ class AdminHome extends Component {
 
   render() {
     return (
-      <>      
+      <>
         <BrowserRouter>
-        <>
-        <AdminNavbar {...this.props}/>
-        <Row className='rowNew'>          
-            <AdminSidebar />          
-          <Col className='rowNew'>
-            <Route path='/admin/home/ViewProfile' render={() => (<ViewProfile {...this.props} />)} />
-            <Route path='/admin/home/IncidentMaster' render={() => (<IncidentsMaster {...this.props} />)} />
-            <Route path='/admin/home/CategoryMaster' render={() => (<CategoryMaster {...this.props} />)} />
-            <Route path='/admin/home/UserMaster' render={() => (<UserMaster {...this.props} />)} />
-            <Route path='/admin/home/ComponentMaster' render={() => (<ComponentsMaster {...this.props} />)} />
-            <Route path='/admin/home/ManageComponents' render={() => (<ManageComponents {...this.props} />)} />
-          </Col>
-        </Row>
-        </>
-      </BrowserRouter>
+          <>
+            <AdminNavbar {...this.props} />
+            <Row className='rowNew'>
+              <AdminSidebar />
+              <Col className='rowNew'>
+                <Route path='/admin/home/ViewProfile' render={() => (<ViewProfile {...this.props} />)} />
+                <Route path='/admin/home/IncidentMaster' render={() => (<IncidentsMaster {...this.props} />)} />
+                <Route path='/admin/home/CategoryMaster' render={() => (<CategoryMaster {...this.props} />)} />
+                <Route path='/admin/home/UserMaster' render={() => (<UserMaster {...this.props} />)} />
+                <Route path='/admin/home/ComponentMaster' render={() => (<ComponentsMaster {...this.props} />)} />
+                <Route path='/admin/home/ManageComponents' render={() => (<ManageComponents {...this.props} />)} />
+              </Col>
+            </Row>
+          </>
+        </BrowserRouter>
 
       </>
     )
