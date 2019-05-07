@@ -8,7 +8,7 @@ import './App.css';
 import ResetPassword from './Components/ResetPassword';
 import ForgotPassword from './Components/ForgotPassword';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 class App extends Component {
   render() {
@@ -21,19 +21,19 @@ class App extends Component {
             <Route path='/admin/home' render={props => <AdminHome {...props} />} />
             <Route exact path='/reset/:token' render={props => <ResetPassword {...props} />} />
             <Route exact path='/ForgotPassword' render={props => <ForgotPassword {...props} />} />
-            <ToastContainer           
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnVisibilityChange
-            draggable
-            pauseOnHover
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnVisibilityChange
+              draggable
+              pauseOnHover
             />
             {/* Same as */}
-            
+
 
             {/* <Route path='/admin/home/*' Component={NotFound} /> */}
             {/* <Redirect to='/' /> */}

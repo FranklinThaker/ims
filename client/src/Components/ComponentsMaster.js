@@ -95,7 +95,6 @@ class ComponentsMaster extends Component {
   }
 
   render() {
-    console.log(this.state.data)
     return (
       <>
         <Button type="submit" color="primary" onClick={this.toggleAdd}>Add New Component</Button>&nbsp;

@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import AuthService from './AuthService';
-import { Button, ButtonDropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
+import { Button } from 'reactstrap'
 import Simplert from 'react-simplert'
 import Select from 'react-select';
 
@@ -60,7 +60,6 @@ class IncidentCRUD extends Component {
 
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Option selected:`, selectedOption.value);
   }
 
   componentWillMount() {
@@ -91,25 +90,24 @@ class IncidentCRUD extends Component {
   }
 
   render() {
-    console.log(this.state.userArray, "in render incidentcrud")
     return (
       <>
         <form className="login" onSubmit={(e) => { this.handleFormSubmit(e) }}>
           
             <label>Incident Name</label>          
-            <input type="text" value="" value={this.state.formdata.incidentName} disabled />
+            <input type="text" value={this.state.formdata.incidentName} disabled />
 
           
             <label>Incident Details</label>           
             <input type="text" value={this.state.formdata.incident} disabled />
 
-          
-            <label>Updates</label>          
-            <input type="text" value={this.state.formdata.updates} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'updates')} required />
+            
+              <label>Updates</label>          
+              <input type="text" value={this.state.formdata.updates && this.state.formdata.updates} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'updates')} required />
 
           
             <label>Status</label>          
-            <input type="text" value={this.state.formdata.status} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'status')} required />
+            <input type="text" value={this.state.formdata.status && this.state.formdata.status} onChange={(e) => this.ChangeUpdateValue(e, 'formdata', 'status')} required />
 
           Select Resolved By User <br />
           <Select

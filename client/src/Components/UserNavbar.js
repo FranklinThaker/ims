@@ -30,15 +30,14 @@ class UserNavbar extends React.Component {
 
         return (
             <>
-                <div class="navbarForHome">
-                    <label class="floatLeft" for="navBtn" style={{ marginBottom: "0px" }}><span></span></label>
-
-                    <Link class="active" to="/user/home"><i class="fa fa-fw fa-home"></i> Home</Link>
-                    <Link to="#"><i class="fa fa-fw fa-envelope"></i> Contact</Link>
-                    <Link to="#" onClick={this.handleLogout.bind(this)}><i class="fa fa-fw fa-user"></i> Login</Link>
-                    <div class="dropdown">
-                        <button class="dropbtn" onClick={() => this.setState({ display: !this.state.display })} >Dropdown
-                     <i class="fa fa-caret-down"></i>
+                <div className="navbarForHome">
+                    <label className="floatLeft" htmlFor="navBtn" style={{ marginBottom: "0px" }}><span></span></label>
+                    <Link className="active" to="/user/home"><i className="fa fa-fw fa-home"></i> Home</Link>
+                    <Link to="#"><i className="fa fa-fw fa-envelope"></i> Contact</Link>
+                    <Link to="#" onClick={this.handleLogout.bind(this)}><i className="fa fa-fw fa-user"></i> Login</Link>
+                    <div className="dropdown">
+                        <button className="dropbtn" onClick={() => this.setState({ display: !this.state.display })} >Dropdown
+                     <i className="fa fa-caret-down"></i>
                         </button>
                         <div className={this.state.display ? 'dropdown-content' : 'hide'}>
                             <Button className="btn-danger" color='danger' onClick={this.handleLogout.bind(this)} >Logout</Button>

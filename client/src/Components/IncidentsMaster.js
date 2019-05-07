@@ -128,8 +128,8 @@ class IncidentsMaster extends Component {
                   Header: '',
                   Cell: row => (
                     <>
-                      {<><Button color='primary' onClick={(e) => { this.toggleEdit(row.original.id) }} ><i class="fa fa-pencil-square-o"></i></Button>&nbsp;</>}
-                      {<Button color='danger' onClick={(e) => { this.handleDelete(row.original.id) }}><i class="fa fa-times"></i></Button>}
+                      {<><Button color='primary' onClick={(e) => { this.toggleEdit(row.original.id) }} ><i className="fa fa-pencil-square-o"></i></Button>&nbsp;</>}
+                      {<Button color='danger' onClick={(e) => { this.handleDelete(row.original.id) }}><i className="fa fa-times"></i></Button>}
                     </>
                   )
                 }
